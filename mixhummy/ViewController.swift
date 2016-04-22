@@ -45,7 +45,8 @@ class ViewController: UIViewController {
             self.view.backgroundColor = UIColor.blueColor()
             
         case 2:
-            self.view.backgroundColor = UIColor.redColor()
+            let second = SecondViewController()
+            self.navigationController?.pushViewController(second, animated: true)
             
         default:
             print("error")
