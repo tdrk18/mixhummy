@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1619D64A1CCE695A00121E7F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619D6491CCE695A00121E7F /* DetailViewController.swift */; };
 		16425CF01CCA4F5C00D131DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16425CEF1CCA4F5C00D131DD /* AppDelegate.swift */; };
 		16425CF21CCA4F5C00D131DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16425CF11CCA4F5C00D131DD /* ViewController.swift */; };
 		16425CF51CCA4F5C00D131DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16425CF31CCA4F5C00D131DD /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1619D6491CCE695A00121E7F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		16425CEC1CCA4F5C00D131DD /* mixhummy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixhummy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16425CEF1CCA4F5C00D131DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16425CF11CCA4F5C00D131DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				16425CEF1CCA4F5C00D131DD /* AppDelegate.swift */,
 				16425CF11CCA4F5C00D131DD /* ViewController.swift */,
 				16425D1D1CCA574E00D131DD /* SecondViewController.swift */,
+				1619D6491CCE695A00121E7F /* DetailViewController.swift */,
 				16425CF31CCA4F5C00D131DD /* Main.storyboard */,
 				16425CF61CCA4F5C00D131DD /* Assets.xcassets */,
 				16425CF81CCA4F5C00D131DD /* LaunchScreen.storyboard */,
@@ -265,6 +268,7 @@
 				16425D1E1CCA574E00D131DD /* SecondViewController.swift in Sources */,
 				16425CF21CCA4F5C00D131DD /* ViewController.swift in Sources */,
 				16425CF01CCA4F5C00D131DD /* AppDelegate.swift in Sources */,
+				1619D64A1CCE695A00121E7F /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +493,7 @@
 				16425D161CCA4F5D00D131DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16425D171CCA4F5D00D131DD /* Build configuration list for PBXNativeTarget "mixhummyTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +502,7 @@
 				16425D191CCA4F5D00D131DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16425D1A1CCA4F5D00D131DD /* Build configuration list for PBXNativeTarget "mixhummyUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +511,7 @@
 				16425D1C1CCA4F5D00D131DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

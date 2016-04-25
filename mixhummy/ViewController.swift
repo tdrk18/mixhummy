@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     private var myLeftButton: UIBarButtonItem!
     private var myRightButton: UIBarButtonItem!
     
+//    private var
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,33 @@ class ViewController: UIViewController {
         // put the button items
         self.navigationItem.leftBarButtonItem = myLeftButton
         self.navigationItem.rightBarButtonItem = myRightButton
+        
+        let officialButton: UIButton = UIButton(frame: CGRectMake(0,0,250,150))
+        officialButton.backgroundColor = UIColor.redColor();
+        officialButton.layer.masksToBounds = true
+        officialButton.setTitle("Next", forState: .Normal)
+        officialButton.layer.cornerRadius = 20.0
+        officialButton.layer.position = CGPoint(x: self.view.bounds.width/2 , y:self.view.bounds.height/3)
+        officialButton.addTarget(self, action: "showDetailButton:", forControlEvents: .TouchUpInside)
+        self.view.addSubview(officialButton);
+        
+        let eventButton: UIButton = UIButton(frame: CGRectMake(0,0,120,150))
+        eventButton.backgroundColor = UIColor.orangeColor();
+        eventButton.layer.masksToBounds = true
+        eventButton.setTitle("Next", forState: .Normal)
+        eventButton.layer.cornerRadius = 20.0
+        eventButton.layer.position = CGPoint(x: self.view.bounds.width/3-10 , y:self.view.bounds.height/2+75)
+        eventButton.addTarget(self, action: "showDetailButton:", forControlEvents: .TouchUpInside)
+        self.view.addSubview(eventButton);
+        
+        let eventButton2: UIButton = UIButton(frame: CGRectMake(0,0,120,150))
+        eventButton2.backgroundColor = UIColor.orangeColor();
+        eventButton2.layer.masksToBounds = true
+        eventButton2.setTitle("Next", forState: .Normal)
+        eventButton2.layer.cornerRadius = 20.0
+        eventButton2.layer.position = CGPoint(x: self.view.bounds.width/3*2+10 , y:self.view.bounds.height/2+75)
+        eventButton.addTarget(self, action: "showDetailButton:", forControlEvents: .TouchUpInside)
+        self.view.addSubview(eventButton2);
     }
     
     /*
@@ -51,6 +80,11 @@ class ViewController: UIViewController {
         default:
             print("error")
         }
+    }
+    
+    internal func showDetailButton(sender: UIButton){
+        let next = DetailViewController()
+        self.navigationController?.pushViewController(next, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
