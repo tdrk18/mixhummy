@@ -28,6 +28,30 @@ class DetailViewController: UIViewController {
 
         // put the button items
         self.navigationItem.leftBarButtonItem = myLeftButton
+        
+        let photo: UIButton = UIButton(frame: CGRectMake(0,0,300,200))
+        photo.backgroundColor = UIColor.redColor();
+        photo.layer.masksToBounds = true
+        photo.setTitle("Photo", forState: .Normal)
+        photo.layer.cornerRadius = 20.0
+        photo.layer.position = CGPoint(x: self.view.bounds.width/2 , y:self.view.bounds.height/3)
+        self.view.addSubview(photo);
+        
+        let description: UIButton = UIButton(frame: CGRectMake(0,0,300,200))
+        description.backgroundColor = UIColor.blueColor();
+        description.layer.masksToBounds = true
+        description.setTitle("description", forState: .Normal)
+        description.layer.cornerRadius = 20.0
+        description.layer.position = CGPoint(x: self.view.bounds.width/2 , y:self.view.bounds.height/3*2+20)
+        self.view.addSubview(description);
+        
+        let clickButton: UIButton = UIButton(frame: CGRectMake(0,0,80,40))
+        clickButton.backgroundColor = UIColor.blueColor();
+        clickButton.layer.masksToBounds = true
+        clickButton.setTitle("click", forState: .Normal)
+        clickButton.layer.cornerRadius = 20.0
+        clickButton.layer.position = CGPoint(x: self.view.bounds.width-50 , y:self.view.bounds.height-30)
+        self.view.addSubview(clickButton);
     }
     
     /*
