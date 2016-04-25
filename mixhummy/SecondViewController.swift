@@ -63,7 +63,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
 //        self.view.addSubview(myTextField)
         
         // UITextFieldを作成する.
-        myTitleField = UITextField(frame: CGRectMake(0,0,200,30))
+        myTitleField = UITextField(frame: CGRectMake(0,0,270,30))
         // 表示する文字を代入する.
         myTitleField.text = "title"
         // 枠を表示する.
@@ -75,10 +75,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         self.view.addSubview(myTitleField)
         
         // UITextFieldを作成する.
-        myDescriptionField = UITextField(frame: CGRectMake(0,0,200,150))
-        
+        myDescriptionField = UITextField(frame: CGRectMake(0,0,270,150))
         // 表示する文字を代入する.
-        myDescriptionField.text = "description"
+        myDescriptionField.text = "description of the event"
         // 枠を表示する.
         myDescriptionField.borderStyle = UITextBorderStyle.RoundedRect
         // UITextFieldの表示する位置を設定する.

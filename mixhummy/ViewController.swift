@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = myLeftButton
         self.navigationItem.rightBarButtonItem = myRightButton
         
-        let officialButton: UIButton = UIButton(frame: CGRectMake(0,0,250,150))
+        let officialButton: UIButton = UIButton(frame: CGRectMake(0,0,300,150))
         officialButton.backgroundColor = UIColor.redColor();
         officialButton.layer.masksToBounds = true
         officialButton.setTitle("Next", forState: .Normal)
@@ -45,22 +45,22 @@ class ViewController: UIViewController {
         officialButton.addTarget(self, action: "showDetailButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(officialButton);
         
-        let eventButton: UIButton = UIButton(frame: CGRectMake(0,0,120,150))
+        let eventButton: UIButton = UIButton(frame: CGRectMake(0,0,140,150))
         eventButton.backgroundColor = UIColor.orangeColor();
         eventButton.layer.masksToBounds = true
         eventButton.setTitle("Next", forState: .Normal)
         eventButton.layer.cornerRadius = 20.0
-        eventButton.layer.position = CGPoint(x: self.view.bounds.width/3-10 , y:self.view.bounds.height/2+75)
+        eventButton.layer.position = CGPoint(x: self.view.bounds.width/3-25 , y:self.view.bounds.height/2+75)
         eventButton.addTarget(self, action: "showDetailButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(eventButton);
         
-        let eventButton2: UIButton = UIButton(frame: CGRectMake(0,0,120,150))
+        let eventButton2: UIButton = UIButton(frame: CGRectMake(0,0,140,150))
         eventButton2.backgroundColor = UIColor.orangeColor();
         eventButton2.layer.masksToBounds = true
         eventButton2.setTitle("Next", forState: .Normal)
         eventButton2.layer.cornerRadius = 20.0
-        eventButton2.layer.position = CGPoint(x: self.view.bounds.width/3*2+10 , y:self.view.bounds.height/2+75)
-        eventButton.addTarget(self, action: "showDetailButton:", forControlEvents: .TouchUpInside)
+        eventButton2.layer.position = CGPoint(x: self.view.bounds.width/3*2+25 , y:self.view.bounds.height/2+75)
+        eventButton2.addTarget(self, action: "showDetailButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(eventButton2);
     }
     
