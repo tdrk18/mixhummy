@@ -9,14 +9,23 @@
 import Foundation
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     
-    private var myTextField: UITextField!
-    private var myTitleField: UITextField!
-    private var myDescriptionField: UITextField!
+    var myTextField: UITextField!
+    var myTitleField: UITextField!
+    var myDescriptionField: UITextField!
+    let sc = UIScrollView()
+    var txtActiveField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sc.frame = self.view.frame;
+        sc.backgroundColor = UIColor.redColor()
+        sc.delegate = self
+        sc.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        self.view.addSubview(sc)
+        
         self.title = "Add Event"
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "onClickMyButton:")
@@ -28,25 +37,27 @@ class SecondViewController: UIViewController {
         let myDatePicker: UIDatePicker = UIDatePicker()
         
         // datePickerを設定（デフォルトでは位置は画面上部）する.
-        myDatePicker.frame = CGRectMake(0, 50, self.view.frame.width, 200)
+        myDatePicker.frame = CGRectMake(0, 50, 280, 150)
         myDatePicker.timeZone = NSTimeZone.localTimeZone()
         myDatePicker.datePickerMode = UIDatePickerMode.Date
         myDatePicker.backgroundColor = UIColor.whiteColor()
         myDatePicker.layer.cornerRadius = 5.0
 //        myDatePicker.layer.shadowOpacity = 0.5
-        myDatePicker.layer.position = CGPoint(x: self.view.bounds.width/2, y: 200)
+        myDatePicker.layer.position = CGPoint(x: sc.bounds.width/2, y: 100)
         
         // 値が変わった際のイベントを登録する.
         myDatePicker.addTarget(self, action: "onDidChangeDate:", forControlEvents: .ValueChanged)
         
         // DataPickerをViewに追加する.
-        self.view.addSubview(myDatePicker)
+        sc.addSubview(myDatePicker)
+        
+        
         
         // UITextFieldを作成する.
         myTextField = UITextField(frame: CGRectMake(0,0,200,30))
         myTextField.text = ""
         myTextField.borderStyle = UITextBorderStyle.RoundedRect
-        myTextField.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height - 100);
+//        myTextField.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height - 100);
         
         // UITextFieldをViewに追加する.
 //        self.view.addSubview(myTextField)
@@ -58,8 +69,9 @@ class SecondViewController: UIViewController {
         // 枠を表示する.
         myTitleField.borderStyle = UITextBorderStyle.RoundedRect
         // UITextFieldの表示する位置を設定する.
-        myTitleField.layer.position = CGPoint(x:self.view.bounds.width/2, y: self.view.bounds.height - 200);
+        myTitleField.layer.position = CGPoint(x:self.view.bounds.width/2, y: sc.bounds.height/2 - 50);
         // Viewに追加する.
+        myTitleField.delegate = self
         self.view.addSubview(myTitleField)
         
         // UITextFieldを作成する.
@@ -70,9 +82,17 @@ class SecondViewController: UIViewController {
         // 枠を表示する.
         myDescriptionField.borderStyle = UITextBorderStyle.RoundedRect
         // UITextFieldの表示する位置を設定する.
-        myDescriptionField.layer.position = CGPoint(x:self.view.bounds.width/2, y: self.view.bounds.height - 100);
+        myDescriptionField.layer.position = CGPoint(x:self.view.bounds.width/2, y: sc.bounds.height/2 + 50);
         // Viewに追加する.
+        myDescriptionField.delegate = self
         self.view.addSubview(myDescriptionField)
+        
+//        sc.delegate = self
+        
+        myDescriptionField.delegate = self
+        
+        sc.addSubview(myTitleField)
+        sc.addSubview(myDescriptionField)
     }
     
     /*
@@ -95,13 +115,16 @@ class SecondViewController: UIViewController {
     internal func onClickMyButton(sender: UIButton){
         print(myTitleField.text!)
         print(myDescriptionField.text!)
+        print(myTextField.text!)
     }
     
     /*
     UITextFieldが編集された直後に呼ばれるデリゲートメソッド.
     */
-    func textFieldDidBeginEditing(textField: UITextField){
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         print("textFieldDidBeginEditing:" + textField.text!)
+        txtActiveField = textField
+        return true
     }
     
     /*
@@ -124,5 +147,34 @@ class SecondViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func handleKeyboardWillShowNotification(notification: NSNotification) {
+        
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
+        var txtLimit = txtActiveField.frame.origin.y + txtActiveField.frame.height
+        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        
+        
+        print("テキストフィールドの下辺：(\(txtLimit))")
+        print("キーボードの上辺：(\(kbdLimit))")
+        
+        if txtLimit >= kbdLimit {
+            sc.contentOffset.y = txtLimit - kbdLimit
+        }
+    }
+    
+    func handleKeyboardWillHideNotification(notification: NSNotification) {
+        sc.contentOffset.y = -70
     }
 }
