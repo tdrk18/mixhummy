@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     private var myLeftButton: UIBarButtonItem!
     private var myRightButton: UIBarButtonItem!
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
             }
             
         case 2:
-            let second = SecondViewController()
+            let second = CreateViewController()
             self.navigationController?.pushViewController(second, animated: true)
             
         default:

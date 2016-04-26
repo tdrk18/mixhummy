@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
         self.title = "mixhummy"
         
         // define buttons
-        myLeftButton = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: "onClickMyButton:")
+        myLeftButton = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: "onClickLeftButton:")
 
         // put the button items
         self.navigationItem.leftBarButtonItem = myLeftButton
@@ -51,17 +51,27 @@ class DetailViewController: UIViewController {
         clickButton.setTitle("click", forState: .Normal)
         clickButton.layer.cornerRadius = 20.0
         clickButton.layer.position = CGPoint(x: self.view.bounds.width-50 , y:self.view.bounds.height-30)
+        clickButton.addTarget(self, action: "onClickButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(clickButton);
     }
     
     /*
     Button Event
     */
-    internal func onClickMyButton(sender: UIButton){
+    internal func onClickLeftButton(sender: UIButton){
         
-        let second = ViewController()
+        let second = MainViewController()
         self.navigationController?.pushViewController(second, animated: true)
 
+    }
+    internal func onClickButton(sender: UIButton){
+        
+        if self.view.backgroundColor == UIColor.whiteColor(){
+            self.view.backgroundColor = UIColor.rgb(r: 204, g: 255, b: 255, alpha: 1.0)
+        } else {
+            self.view.backgroundColor = UIColor.whiteColor()
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

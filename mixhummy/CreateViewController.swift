@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SecondViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
+class CreateViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     
     var myTextField: UITextField!
     var myTitleField: UITextField!

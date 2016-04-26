@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // viewConrollerを生成.
-        let myViewController = ViewController()
+        let myViewController = MainViewController()
         
         // navigationControllerを生成.
         let navigationController = UINavigationController(rootViewController: myViewController)
