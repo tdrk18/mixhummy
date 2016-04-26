@@ -21,7 +21,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         super.viewDidLoad()
         
         sc.frame = self.view.frame;
-        sc.backgroundColor = UIColor.redColor()
+        sc.backgroundColor = UIColor.whiteColor()
         sc.delegate = self
         sc.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         self.view.addSubview(sc)
@@ -30,18 +30,16 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "onClickMyButton:")
         
-        // ただ背景色がシアンなだけ
-        self.view.backgroundColor = UIColor.cyanColor()
-        
         // DatePickerを生成する.
         let myDatePicker: UIDatePicker = UIDatePicker()
         
         // datePickerを設定（デフォルトでは位置は画面上部）する.
-        myDatePicker.frame = CGRectMake(0, 50, 280, 150)
+        myDatePicker.frame = CGRectMake(0, 50, self.view.frame.width, 200)
         myDatePicker.timeZone = NSTimeZone.localTimeZone()
         myDatePicker.datePickerMode = UIDatePickerMode.Date
         myDatePicker.backgroundColor = UIColor.whiteColor()
         myDatePicker.layer.cornerRadius = 5.0
+        myDatePicker.layer.borderWidth = 0.5
 //        myDatePicker.layer.shadowOpacity = 0.5
         myDatePicker.layer.position = CGPoint(x: sc.bounds.width/2, y: 100)
         

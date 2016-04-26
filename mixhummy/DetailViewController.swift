@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         // set Cyan to the background color
-        self.view.backgroundColor = UIColor.greenColor()
+        self.view.backgroundColor = UIColor.whiteColor()
         
         // set the title of NavigationController
         self.title = "mixhummy"
@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = myLeftButton
         
         let photo: UIButton = UIButton(frame: CGRectMake(0,0,300,200))
-        photo.backgroundColor = UIColor.redColor();
+        photo.backgroundColor = UIColor.orangeColor();
         photo.layer.masksToBounds = true
         photo.setTitle("Photo", forState: .Normal)
         photo.layer.cornerRadius = 20.0
@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
         self.view.addSubview(photo);
         
         let description: UIButton = UIButton(frame: CGRectMake(0,0,300,200))
-        description.backgroundColor = UIColor.blueColor();
+        description.backgroundColor = UIColor.rgb(r: 51, g: 153, b: 102, alpha: 1.0)
         description.layer.masksToBounds = true
         description.setTitle("description", forState: .Normal)
         description.layer.cornerRadius = 20.0
@@ -46,7 +46,7 @@ class DetailViewController: UIViewController {
         self.view.addSubview(description);
         
         let clickButton: UIButton = UIButton(frame: CGRectMake(0,0,80,40))
-        clickButton.backgroundColor = UIColor.blueColor();
+        clickButton.backgroundColor = UIColor.rgb(r: 51, g: 153, b: 255, alpha: 1.0)
         clickButton.layer.masksToBounds = true
         clickButton.setTitle("click", forState: .Normal)
         clickButton.layer.cornerRadius = 20.0

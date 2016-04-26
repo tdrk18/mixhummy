@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // set Cyan to the background color
-        self.view.backgroundColor = UIColor.cyanColor()
+        self.view.backgroundColor = UIColor.whiteColor()
         
         // set the title of NavigationController
         self.title = "mixhummy"
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = myRightButton
         
         let officialButton: UIButton = UIButton(frame: CGRectMake(0,0,300,150))
-        officialButton.backgroundColor = UIColor.redColor();
+        officialButton.backgroundColor = UIColor.rgb(r: 204, g: 51, b: 51, alpha: 1.0)
         officialButton.layer.masksToBounds = true
         officialButton.setTitle("Next", forState: .Normal)
         officialButton.layer.cornerRadius = 20.0
@@ -71,7 +71,11 @@ class ViewController: UIViewController {
         
         switch(sender.tag){
         case 1:
-            self.view.backgroundColor = UIColor.blueColor()
+            if self.view.backgroundColor == UIColor.whiteColor(){
+                self.view.backgroundColor = UIColor.rgb(r: 204, g: 255, b: 255, alpha: 1.0)
+            } else {
+                self.view.backgroundColor = UIColor.whiteColor()
+            }
             
         case 2:
             let second = SecondViewController()
